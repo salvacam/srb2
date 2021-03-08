@@ -35,7 +35,8 @@ NOHW=1
 SDL=1
 NOVERSION=1
 
-PREFIX=$(CHAINPREFIX)/usr/bin/mipsel-linux
+#PREFIX=$(CHAINPREFIX)/usr/bin/mipsel-linux
+PREFIX=$(CHAINPREFIX)/usr/bin/arm-linux
 
 CC ?= $(CROSS_COMPILE)gcc
 LD ?= $(CROSS_COMPILE)gcc
@@ -52,8 +53,11 @@ SDL_CONFIG=$(SYSROOT)/usr/bin/sdl-config
 
 # EXENAME ?= srb2.elf
 
-CFLAGS+= -DGCW0 -DNOASM -O2 -fomit-frame-pointer -ffunction-sections -ffast-math -fsingle-precision-constant \
- -G0 -march=mips32 -mtune=mips32
+#CFLAGS+= -DGCW0 -DNOASM -O2 -fomit-frame-pointer -ffunction-sections -ffast-math -fsingle-precision-constant \
+# -G0 -march=mips32 -mtune=mips32
+
+CFLAGS+= -DGCW0 -DMIYOO_MODE -DNOASM -O2 -fomit-frame-pointer -ffunction-sections -ffast-math -fsingle-precision-constant \
+ -march=armv5te -mtune=arm926ej-s
 LDFLAGS+= -Wl,--gc-sections
 
 ifdef LINUX64

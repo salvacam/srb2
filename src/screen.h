@@ -52,7 +52,7 @@
 #if defined (_WIN32_WCE) || defined (DC) || defined (_PSP)
 #define MAXVIDWIDTH 320
 #define MAXVIDHEIGHT 200
-#elif defined (GP2X)
+#elif defined (GP2X) || defined (MIYOO_MODE)
 #define MAXVIDWIDTH 320 //720
 #define MAXVIDHEIGHT 240 //576
 #else
