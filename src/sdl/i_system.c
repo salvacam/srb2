@@ -2180,7 +2180,9 @@ void I_Quit(void)
 	if (demorecording)
 		G_CheckDemoStatus();
 	D_QuitNetGame();
+  	#ifndef MIYOO_MODE
 	I_ShutdownMusic();
+	#endif
 	I_ShutdownSound();
 	I_ShutdownCD();
 	// use this for 1.28 19990220 by Kin
